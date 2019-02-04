@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- ng-app define qual o módulo Angular será utilizado como principal -->
 <html lang="pt-br" ng-app="alurapic">
 	<head>
 		<meta charset="UTF-8">
@@ -10,11 +11,13 @@
 		<script src="js/main.js"></script>
 		<script src="js/controllers/fotos-controller.js"></script>
 	</head>
+	<!-- ng-controller define para qual parte do código um controller será utilizado-->
 	<body ng-controller="FotosController">
 		<div class="container">
 			<div class="jumbotron">
 				<h1 class="text-center">Alurapic</h1>
 			</div>
+			<!-- Diretiva ng-repeat usada para repetir o conteúdo da Div para cada foto presente na lista-->
 			<div ng-repeat="fotos in foto" class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">{{fotos.titulo}}</h3>
