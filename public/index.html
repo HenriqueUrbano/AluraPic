@@ -7,7 +7,9 @@
 		<title>Alurapic</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/efeitos.css">
 		<script src="js/lib/angular.min.js"></script>
+		<script src="js/lib/angular-animate.min.js"></script>
 		<script src="js/main.js"></script>
 		<script src="js/controllers/fotos-controller.js"></script>
 		<script src="js/directives/minhas-diretivas.js"></script>
@@ -18,10 +20,20 @@
 			<div class="jumbotron">
 				<h1 class="text-center">Alurapic</h1>
 			</div>
-			<!-- Diretiva ng-repeat usada para repetir o conteúdo da Div para cada foto presente na lista-->
-			<meu-painel ng-repeat="fotos in foto" titulo="{{fotos.titulo}}">
-				<img class="img-responsive center-block" src="{{fotos.url}}" alt="{{fotos.titulo}}">'
-			</meu-painel><!-- fim do painel-->
+			<div class="row">
+				<div class="col-md-12">
+					<form>
+						<!--ng-model cria um two-way-databinding com o controller, ng-model-options aplica um delay em ms-->
+						<input class="form-control" ng-model="filtro" ng-model-options="{debounce: 500}" placeholder="Filtrar">
+					</form>
+				</div><!--Fim col-md-12-->
+			</div><!--Fim Row-->
+			<div class="row">
+				<!-- Diretiva ng-repeat usada para repetir o conteúdo da Div para cada foto presente na lista-->
+				<meu-painel class="col-md-2 painel-animado" ng-repeat="fotos in foto | filter: filtro" titulo="{{fotos.titulo}}">
+					<img class="img-responsive center-block" src="{{fotos.url}}" alt="{{fotos.titulo}}">
+				</meu-painel><!-- fim do painel-->
+			</div><!--Fim Row 2-->
 		</div> <!-- fim container -->        
 	</body>
 </html>

@@ -2,6 +2,8 @@ angular.module('alurapic').controller('FotosController', function($scope, $http)
 	
 	//Declaração inicial da variávei Scope
 	$scope.foto = []; 
+	//Filtro recebe o valor digitado no input com ng-model ='filtro'
+	$scope.filtro = '';
 
 	//Realiza uma requisição assíncrona para obter os dados
 	$http.get('v1/fotos')
