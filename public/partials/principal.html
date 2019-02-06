@@ -4,8 +4,13 @@
     <div class="row">
         <div class="col-md-12">
             <form>
-                <!--ng-model cria um two-way-databinding com o controller, ng-model-options aplica um delay em ms-->
-                <input class="form-control" ng-model="filtro" ng-model-options="{debounce: 500}" placeholder="Filtrar">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <a href="fotos/new" class="btn btn-primary">Nova Foto</a>
+                    </span>
+                    <!--ng-model cria um two-way-databinding com o controller, ng-model-options aplica um delay em ms-->
+                    <input class="form-control" ng-model="filtro" ng-model-options="{debounce: 500}" placeholder="Filtrar">
+                </div><!--Fim Input Group-->
             </form>
         </div><!--Fim col-md-12-->
     </div><!--Fim Row-->
