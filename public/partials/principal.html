@@ -22,6 +22,6 @@
         <meu-painel class="col-md-2 painel-animado" ng-repeat="fotos in foto | filter: filtro" titulo="{{fotos.titulo}}">
             <minha-foto url="{{fotos.url}}" titulo="{{fotos.titulo}}"></minha-foto>
             <a href="fotos/edit/{{fotos._id}}" class="btn btn-primary btn-block">Editar</a>
-            <button class="btn btn-danger btn-block" ng-click="remover(fotos)">Remover</button>
+            <meu-botao-perigo acao="remover(fotos)" texto="Remover"></meu-botao-perigo>
         </meu-painel><!-- fim do painel-->
     </div><!--Fim Row 2-->

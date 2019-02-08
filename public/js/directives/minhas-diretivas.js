@@ -8,6 +8,7 @@ angular.module('minhasDiretivas', [])
 
     //Escopo privado da diretiva (O que a diretiva possui dentro de si)
     ddo.scope ={
+        // @ Envia os dados como uma cópia em string do valor
         titulo:'@'
     };
     //Permite a inclusão de elementos filhos em nossa diretiva customizada
@@ -30,6 +31,22 @@ angular.module('minhasDiretivas', [])
     };
 
     ddo.templateUrl="js/directives/minha-foto.html";
+
+    return ddo;
+})
+.directive('meuBotaoPerigo',function(){
+
+    var ddo = {};
+
+    ddo.restrict ="E";
+
+    ddo.scope={
+        texto:'@',
+        // & é utilizado para enviar o dado como expressão, em vez de enviar uma cópia em string
+        acao:'&'
+    };
+    // Declaração do template Inline
+    ddo.template="<button class='btn btn-danger btn-block' ng-click=acao(foto)>{{texto}}</button>";
 
     return ddo;
 });
