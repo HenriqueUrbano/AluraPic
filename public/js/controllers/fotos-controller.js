@@ -5,6 +5,8 @@ angular.module('alurapic').controller('FotosController', function($scope, $http)
 	//Filtro recebe o valor digitado no input com ng-model ='filtro'
 	$scope.filtro = '';
 
+	$scope.mensagem = '';
+
 	//Realiza uma requisição assíncrona para obter os dados
 	$http.get('v1/fotos')
 	//Executa caso a requisição ocorra com suceso
@@ -15,6 +17,19 @@ angular.module('alurapic').controller('FotosController', function($scope, $http)
 	.error(function(error){
 		console.log(error);
 	});
+
+	$scope.remover = function(foto){
+		//Remove a foto
+		$http.delete('v1/fotos/' + foto._id)
+		.success(function(){
+			var indiceFoto = $scope.foto.indexOf(foto);
+			$scope.foto.splice(indiceFoto, 1);
+			$scope.mensagem = 'Foto ' + foto.titulo + ' foi removida com sucesso';
+		})
+		.error(function(erro){
+			$scope.mensagem = 'Não foi possível remover a foto ' + foto.titulo + ' no momento';
+		});
+	}
 
 	/* VERSÃO COM PROMISE
 	//Realiza uma requisição assíncrona para obter os dados

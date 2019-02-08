@@ -17,4 +17,19 @@ angular.module('minhasDiretivas', [])
     ddo.templateUrl='js/directives/meu-painel.html';
     //Toda diretiva precisa retornar uma DDO (Directive Definition Object)
     return ddo;
+})
+.directive('minhaFoto',function(){
+
+    var ddo = {};
+
+    ddo.restrict ="AE";
+
+    ddo.scope={
+        titulo:'@',
+        url:'@'
+    };
+
+    ddo.templateUrl="js/directives/minha-foto.html";
+
+    return ddo;
 });

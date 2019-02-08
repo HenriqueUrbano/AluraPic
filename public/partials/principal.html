@@ -1,6 +1,9 @@
 <div class="jumbotron">
         <h1 class="text-center">Alurapic</h1>
     </div>
+
+    <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
     <div class="row">
         <div class="col-md-12">
             <form>
@@ -17,6 +20,8 @@
     <div class="row">
         <!-- Diretiva ng-repeat usada para repetir o conteúdo da Div para cada foto presente na lista-->
         <meu-painel class="col-md-2 painel-animado" ng-repeat="fotos in foto | filter: filtro" titulo="{{fotos.titulo}}">
-            <img class="img-responsive center-block" src="{{fotos.url}}" alt="{{fotos.titulo}}">
+            <minha-foto url="{{fotos.url}}" titulo="{{fotos.titulo}}"></minha-foto>
+            <a href="fotos/edit/{{fotos._id}}" class="btn btn-primary btn-block">Editar</a>
+            <button class="btn btn-danger btn-block" ng-click="remover(fotos)">Remover</button>
         </meu-painel><!-- fim do painel-->
     </div><!--Fim Row 2-->
